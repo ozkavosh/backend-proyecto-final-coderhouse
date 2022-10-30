@@ -1,0 +1,48 @@
+<div class="container mt-5">
+  <div class="row productContainer bg-dark rounded p-4">
+    <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page">
+          <a href="/productos">Home</a>
+        </li>
+        <li class="breadcrumb-item" aria-current="page">
+          <a href="/chat">Chat</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Mis mensajes</li>
+      </ol>
+    </nav>
+
+    <h2 class="text-light text-uppercase">Mis mensajes</h2>
+
+    <% if (messages.length) { %>
+      <ul>
+        <% messages.forEach( message=> { %>
+          <div class="row flex-row mb-2">
+            <div class="col-auto" style="max-width: 95%">
+              <div class="row bg-dark">
+                <div class="col-auto d-flex align-items-center">
+                  <h5 class="text-primary fw-bold m-0 p-2">
+                    <%= message.email %> /
+                      <span style="color: brown">
+                        <%= message.createdAt %>
+                      </span>
+                  </h5>
+                </div>
+              </div>
+
+              <div class="row bg-light">
+                <div class="col">
+                  <p class="fst-italic text-success p-2 text-break">
+                    <%= message.body %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+      </ul>
+      <% }else{ %>
+        <p class="text-light">Aún no enviaste mensajes</p>
+        <% } %>
+  </div>
+</div>

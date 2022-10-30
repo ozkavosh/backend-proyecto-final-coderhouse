@@ -1,0 +1,49 @@
+<div class="container mt-5">
+    <div class="row productContainer bg-dark rounded p-4">
+        <% if (!errors) { %>
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/productos">Home</a></li>
+                <li class="breadcrumb-item"><a href=<%= `/productos/${product.category}` %>><%= product.category %></a></li>
+                <li class="breadcrumb-item active" aria-current="page"><%= product.title %></li>
+            </ol>
+        </nav>
+        
+            <h2 class="text-light text-uppercase"><%= product.title %> </h2>
+        
+            <div class="row productDetail text-light">
+                <div class="col-3 productImg py-2">
+                    <img src=<%= product.photoUrl %> alt="">
+                </div>
+                <div class="col-4">
+                    <h3 class="fs-4 text-uppercase text-secondary">Descripción</h3>
+                    <p class="productDescription"><%= product.description %></p>
+                    <h3 class="fs-4 text-uppercase text-secondary">Categoría</h3>
+                    <p class="productCategory"><%= product.category %></p>
+                    <h3 class="fs-4 text-uppercase text-secondary">Código</h3>
+                    <p class="productCategory"><%= product.id %></p>
+                </div>
+                <div class="col-2 offset-2 d-flex flex-column align-items-center justify-content-center">
+                    <h3 class="productPrice">$<%= product.price %></h3>
+                    <div class="productQuantity">
+                        <button class="bi bi-dash-circle-fill btnRemoveQuantity"></button>
+                        <p class="quantityDisplay">1</p>
+                        <button class="bi bi-plus-circle-fill btnAddQuantity"></button>
+                    </div>
+                    <button class="btn btn-outline-light mt-3 fw-bold text-uppercase btnAddToCart" data-id=<%= product.id %> >Agregar al carrito</button>
+                </div>
+            </div>
+        <% }else{ %>
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/productos">Home</a></li>
+                    <li class="breadcrumb-item text-secondary">?</li>
+                    <li class="breadcrumb-item active" aria-current="page">?</li>
+                </ol>
+            </nav>
+            
+            <h2 class="text-light text-uppercase">Error</h2>
+            <p class="text-light">No se pudo encontrar el producto en la base de datos!</p>
+        <% } %> 
+    </div>
+</div>

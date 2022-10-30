@@ -1,0 +1,63 @@
+<div class="container mt-5">
+    <div class="row productContainer bg-dark rounded p-4">
+        <% if (orders.length) { %>
+            <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/productos">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Ordenes</li>
+                </ol>
+            </nav>
+
+            <h2 class="text-light text-uppercase">Mis Ordenes</h2>
+
+            <% orders.forEach((order, index)=> { %>
+                <div class="accordion mb-3" id=<%="order" + index %> >
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target=<%="#orderCollapse" + index %>
+                                aria-expanded="false"
+                                aria-controls="collapseOne"
+                                >
+                                <span class="me-3"><i class="bi bi-box"> </i> Productos: <%= order.products.reduce((acc,
+                                        product)=> acc+product.quantity, 0) %></span>
+                                <span class="text-capitalize me-3"><i class="bi bi-info-circle-fill"> </i> Estado: <%=
+                                        order.status %></span>
+                                <span class="me-3"><i class="bi bi-calendar-date"> </i> Fecha: <%= order.createdAt %>
+                                        </span>
+                                <span><i class="bi bi-cash"> </i> Total: $<%= order.products.reduce((acc, product)=>
+                                        acc+(product.quantity * product.price), 0) %></span>
+                            </button>
+                        </h2>
+                        <% order.products.forEach(product=> { %>
+                            <div id=<%="orderCollapse" + index %>
+                                class="accordion-collapse collapse"
+                                aria-labelledby="headingOne"
+                                data-bs-parent=<%= "order" + index %>
+                                    >
+                                    <div class="accordion-body">
+                                        <span class="me-3"><i class="bi bi-box"> </i> Nombre: <%= product.title %>
+                                                </span>
+                                        <span class="me-3"><i class="bi bi-box"> </i> Cantidad: <%= product.quantity %>
+                                                </span>
+                                        <span><i class="bi bi-box"> </i> Total: $<%= product.price * product.quantity %>
+                                                </span>
+                                    </div>
+                            </div>
+                            <% }) %>
+                    </div>
+                </div>
+                <% }) %>
+                    <% } else { %>
+                        <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/productos">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Ordenes</li>
+                            </ol>
+                        </nav>
+
+                        <h2 class="text-light text-uppercase">Mis Ordenes</h2>
+                        <p class="text-light">Aún no hay ordenes cargadas</p>
+                        <% } %>
+    </div>
+</div>

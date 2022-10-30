@@ -1,0 +1,56 @@
+<div class="container mt-5">
+    <div class="row productContainer bg-dark rounded p-4">
+        <% if (cartProducts.length) { %>
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item" aria-current="page"><a href="/productos">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Carrito</li>
+                </ol>
+            </nav>
+
+            <h2 class="text-light text-uppercase">Productos en el Carrito</h2>
+            <ul>
+                <% cartProducts.forEach(product=> { %>
+                    <li class="text-light productCard">
+                        <div class="productImg">
+                            <img src=<%=product.photoUrl %> alt="">
+                        </div>
+
+                        <div class="productInfo">
+                            <a href=<%=`/producto/${product.id}` %> class="productTitle"><%= product.title %></a>
+                            <a href=<%=`/productos/${product.category}` %> class="productCategory"><%= product.category
+                                    %></a>
+                        </div>
+
+                        <p class="productDescription">
+                            <%= product.description %>
+                        </p>
+
+                        <div class="productActions">
+                            <p class="productPrice">
+                                <%= `$${product.price}` %>
+                            </p>
+                            <p class="productQuantity">
+                                Cantidad: <%= product.quantity %>
+                            </p>
+                            <button class="bi bi-cart-dash-fill btnRemoveFromCart" data-id=<%=product.id %>></button>
+                        </div>
+                    </li>
+                    <% }) %>
+            </ul>
+
+            <p class="text-light fs-5 fw-bold">Total: $<%= cartProducts.reduce((acc, product) => acc + (product.price * product.quantity), 0) %> </p>
+            <a href="/orden/nuevo" class="btn btn-outline-light btnCompletePurchase">Finalizar Compra</a>
+            <% } else { %>
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item" aria-current="page"><a href="/productos">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Carrito</li>
+                    </ol>
+                </nav>
+
+                <h2 class="text-light text-uppercase">Productos en el Carrito</h2>
+                <p class="text-light">Aún no hay productos cargados</p>
+                <% } %>
+    </div>
+</div>

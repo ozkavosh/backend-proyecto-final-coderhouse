@@ -1,0 +1,66 @@
+<div class="container mt-5">
+  <div class="row bg-dark p-5 rounded">
+    <div class="col-12">
+      <h2 class="text-light text-uppercase">Registro</h2>
+      <% if (error) { %>
+        <div class="row bg-danger text-white rounded">
+          <p class="fw-bold py-2 m-0"><%= error %></p>
+        </div>
+      <% } %>
+    </div>
+    <form action="/signup" method="post" class="col">
+      <div class="inputGroup">
+        <label for="username" class="form-label text-light">Email</label>
+        <input
+          type="email"
+          name="username"
+          class="form-control"
+          placeholder="Ingrese su email..."
+          required
+        />
+        <span class="input-error text-danger"
+          >Debe tener un formato de email</span
+        >
+      </div>
+
+      <div class="inputGroup">
+        <label for="password" class="form-label text-light">Contraseña</label>
+        <input
+          type="text"
+          name="password"
+          class="form-control"
+          placeholder="Ingrese su contraseña..."
+          minlength="4"
+          required
+        />
+        <span class="input-error text-danger"
+          >Debe tener mínimo 4 caracteres</span
+        >
+      </div>
+
+      <div class="inputGroup">
+        <label for="name" class="form-label text-light">Nombre Completo</label>
+        <input type="text" name="name" class="form-control" placeholder="Ingrese su nombre..." pattern="^[a-zA-Z]+( [a-zA-Z]+)*$" required/>
+        <span class="input-error text-danger"
+          >Solo puede contener letras y espacios entre los nombres/apellidos</span
+        >
+      </div>
+
+      <div class="inputGroup">
+        <label for="cellphone" class="form-label text-light">Teléfono</label>
+        <input type="number" name="cellphone" class="form-control" placeholder="Ingrese su número de teléfono..." pattern="[0-9]*" required/>
+        <span class="input-error text-danger"
+          >Solo puede contener números</span
+        >
+      </div>
+
+      <button type="submit" class="btn btn-outline-light mt-4">
+        Registrarse
+      </button>
+    </form>
+
+    <div class="col-12 mt-2">
+      <a href="/login" class="btn btn-outline-light">Ya tengo cuenta</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const CartService_1 = __importDefault(require("../services/CartService"));
+const CartController_1 = __importDefault(require("../controllers/CartController"));
+const CartRepository_1 = __importDefault(require("../repositories/CartRepository"));
+const jwtAuthRoute_1 = __importDefault(require("../middlewares/jwtAuthRoute"));
+const cartRepository = CartRepository_1.default.getInstance();
+const cartService = CartService_1.default.getInstance(cartRepository);
+const cartController = new CartController_1.default(cartService);
+const cartRouter = (0, express_1.Router)();
+cartRouter.post("/", jwtAuthRoute_1.default, cartController.postCart.bind(cartController));
+cartRouter.post("/:id", jwtAuthRoute_1.default, cartController.postCartProduct.bind(cartController));
+cartRouter.get("/", jwtAuthRoute_1.default, cartController.getCarts.bind(cartController));
+cartRouter.get("/:id", jwtAuthRoute_1.default, cartController.getCart.bind(cartController));
+cartRouter.put("/:id", jwtAuthRoute_1.default, cartController.putCart.bind(cartController));
+cartRouter.patch("/:cartId/:productId", jwtAuthRoute_1.default, cartController.removeCartProduct.bind(cartController));
+cartRouter.patch("/:id", jwtAuthRoute_1.default, cartController.deleteCartProducts.bind(cartController));
+cartRouter.delete("/:id", jwtAuthRoute_1.default, cartController.deleteCart.bind(cartController));
+cartRouter.delete("/", jwtAuthRoute_1.default, cartController.deleteCarts.bind(cartController));
+cartRouter.delete("/:cartId/:productId", jwtAuthRoute_1.default, cartController.deleteCartProduct.bind(cartController));
+exports.default = cartRouter;

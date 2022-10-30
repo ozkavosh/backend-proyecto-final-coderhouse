@@ -1,0 +1,21 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const UserService_1 = __importDefault(require("../services/UserService"));
+const UserController_1 = __importDefault(require("../controllers/UserController"));
+const UserRepository_1 = __importDefault(require("../repositories/UserRepository"));
+const userRepository = UserRepository_1.default.getInstance();
+const userService = UserService_1.default.getInstance(userRepository);
+const userController = new UserController_1.default(userService);
+const userRouter = (0, express_1.Router)();
+userRouter.post('/signup', userController.postUser.bind(userController));
+userRouter.post('/login', userController.postLogin.bind(userController));
+userRouter.get('/', userController.getUsers.bind(userController));
+userRouter.get('/:id', userController.getUser.bind(userController));
+userRouter.put('/:id', userController.putUser.bind(userController));
+userRouter.delete('/:id', userController.deleteUser.bind(userController));
+userRouter.delete('/', userController.deleteUsers.bind(userController));
+exports.default = userRouter;

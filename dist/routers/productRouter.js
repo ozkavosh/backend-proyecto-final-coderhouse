@@ -1,0 +1,21 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const ProductService_1 = __importDefault(require("../services/ProductService"));
+const ProductController_1 = __importDefault(require("../controllers/ProductController"));
+const ProductRepository_1 = __importDefault(require("../repositories/ProductRepository"));
+const jwtAuthRoute_1 = __importDefault(require("../middlewares/jwtAuthRoute"));
+const productRepository = ProductRepository_1.default.getInstance();
+const productService = ProductService_1.default.getInstance(productRepository);
+const productController = new ProductController_1.default(productService);
+const productRouter = (0, express_1.Router)();
+productRouter.post("/", jwtAuthRoute_1.default, productController.postProduct.bind(productController));
+productRouter.get("/", jwtAuthRoute_1.default, productController.getProducts.bind(productController));
+productRouter.get("/:id", jwtAuthRoute_1.default, productController.getProduct.bind(productController));
+productRouter.put("/:id", jwtAuthRoute_1.default, productController.putProduct.bind(productController));
+productRouter.delete("/:id", jwtAuthRoute_1.default, productController.deleteProduct.bind(productController));
+productRouter.delete("/", jwtAuthRoute_1.default, productController.deleteProducts.bind(productController));
+exports.default = productRouter;

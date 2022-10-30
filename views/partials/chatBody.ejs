@@ -1,0 +1,40 @@
+<script>
+  const email = "<%= email %>";
+</script>
+<div class="container mt-5">
+  <div class="row productContainer bg-dark rounded p-4">
+    <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page">
+          <a href="/productos">Home</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Chat</li>
+      </ol>
+    </nav>
+
+    <h2 class="text-light text-uppercase">Sala de chat</h2>
+
+    <a href=<%= `/chat/${email}` %> class="btn btn-outline-light my-3">Ver mis mensajes</a>
+
+    <div
+      class="container bg-secondary rounded"
+      style="height: 45vh; overflow-y: scroll"
+      id="messagesContainer"
+    ></div>
+
+    <form
+      class="w-100 mt-4 mb-4 justify-content-center gap-2"
+    >
+      <textarea
+        name="message"
+        id="messageInput"
+        rows="5"
+        class="form-control"
+        placeholder="Ingrese su mensaje..."
+        required
+      ></textarea>
+
+      <button class="w-100 mt-2 btn btn-outline-light" type="submit">Enviar</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <div class="row bg-dark p-5 rounded">
+    <div class="col-12">
+      <h2 class="text-light text-uppercase">Ingresar</h2>
+      <% if (error) { %>
+      <div class="row bg-danger text-white rounded">
+        <p class="fw-bold py-2 m-0"><%= error %></p>
+      </div>
+      <% } %>
+    </div>
+    <form action="/login" method="post" class="col">
+      <div class="inputGroup">
+        <label for="username" class="form-label text-light">Email</label>
+        <input type="email" name="username" class="form-control" placeholder="Ingrese su email..." required />
+        <span class="input-error text-danger">Debe tener un formato de email</span>
+      </div>
+
+      <div class="inputGroup">
+        <label for="password" class="form-label text-light">Contraseña</label>
+        <input type="text" name="password" class="form-control" placeholder="Ingrese su contraseña..." minlength="4" required />
+        <span class="input-error text-danger">Debe tener mínimo 4 caracteres</span>
+      </div>
+
+      <button type="submit" class="btn btn-outline-light mt-4">Ingresar</button>
+    </form>
+
+    <div class="col-12 mt-2">
+      <a href="/signup" class="btn btn-outline-light">Nueva cuenta</a>
+    </div>
+  </div>
+</div>

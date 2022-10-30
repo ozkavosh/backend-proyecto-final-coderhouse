@@ -1,0 +1,21 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const MessageService_1 = __importDefault(require("../services/MessageService"));
+const MessageController_1 = __importDefault(require("../controllers/MessageController"));
+const MessageRepository_1 = __importDefault(require("../repositories/MessageRepository"));
+const jwtAuthRoute_1 = __importDefault(require("../middlewares/jwtAuthRoute"));
+const messageRepository = MessageRepository_1.default.getInstance();
+const messageService = MessageService_1.default.getInstance(messageRepository);
+const messageController = new MessageController_1.default(messageService);
+const messageRouter = (0, express_1.Router)();
+messageRouter.post("/", jwtAuthRoute_1.default, messageController.postMessage.bind(messageController));
+messageRouter.get("/", jwtAuthRoute_1.default, messageController.getMessages.bind(messageController));
+messageRouter.get("/:id", jwtAuthRoute_1.default, messageController.getMessage.bind(messageController));
+messageRouter.put("/:id", jwtAuthRoute_1.default, messageController.putMessage.bind(messageController));
+messageRouter.delete("/:id", jwtAuthRoute_1.default, messageController.deleteMessage.bind(messageController));
+messageRouter.delete("/", jwtAuthRoute_1.default, messageController.deleteMessages.bind(messageController));
+exports.default = messageRouter;

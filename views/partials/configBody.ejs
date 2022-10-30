@@ -1,0 +1,21 @@
+<div class="container mt-5">
+    <div class="row productContainer bg-dark rounded p-4">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/productos">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Configuración</li>
+            </ol>
+        </nav>
+
+        <h2 class="text-light text-uppercase">Configuración del servidor</h2>
+
+        <ul class="">
+        <% for( let config in configInfo) { %>
+            <li class="input-group flex-nowrap mb-2"> 
+                <span class="input-group-text" id="addon-wrapping"><%= config %></span>
+                <input type="text" class="form-control" value=<%= configInfo[config] || "undefined" %> aria-label="Username" aria-describedby="addon-wrapping" readonly>  
+            </li>
+        <% } %>
+        </ul>
+    </div>
+</div>

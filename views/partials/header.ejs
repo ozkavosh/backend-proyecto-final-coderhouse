@@ -1,0 +1,15 @@
+<div class="container-fluid bg-dark d-flex justify-content-center align-items-center py-2">
+    <h1 class="text-light text-uppercase">Backend Shop</h1>
+</div>
+<% if (loggedIn) { %>
+    <div class="container-fluid bg-secondary d-flex justify-content-center align-items-center py-1">
+        <a href="/logout" class="text-light bi bi-box-arrow-left fs-3 me-5"></a>
+        <div class="cartWidget me-5">
+            <a href="/carrito" class="text-light bi bi-cart-fill fs-3"></a>
+            <span class="cartItems">0</span>
+        </div>
+        <a href="/chat" class="text-light bi bi-chat-dots-fill fs-3 me-5"></a>
+        <a href="/orden" class="text-light bi bi-layout-text-sidebar fs-3 me-5"></a>
+        <a href="/configuracion" class="text-light bi bi-gear-fill fs-3"></a>
+    </div>
+<% } %>

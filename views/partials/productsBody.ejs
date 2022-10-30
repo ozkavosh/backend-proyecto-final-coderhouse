@@ -1,0 +1,52 @@
+<div class="container mt-5">
+    <div class="row productContainer bg-dark rounded p-4">
+        <% if (products.length) { %>
+            <% if (!category) { %>
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active" aria-current="page">Home</li>
+                    </ol>
+                </nav>
+            <%} else{ %>
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/productos">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><%= category %> </li>
+                    </ol>
+                </nav>
+            <% } %> 
+                    
+            <h2 class="text-light text-uppercase">Catálogo de productos</h2>
+                <ul>
+                    <% products.forEach(product => { %>
+                        <li class="text-light productCard">
+                            <div class="productImg">
+                                <img src=<%= product.photoUrl %> alt="">
+                            </div>
+                                
+                            <div class="productInfo">
+                                <a href=<%= `/producto/${product.id}` %> class="productTitle"><%= product.title %></a>
+                                <a href=<%= `/productos/${product.category}` %> class="productCategory"><%= product.category %></a>
+                            </div>
+                                
+                            <p class="productDescription"><%= product.description %></p>
+                                
+                            <div class="productActions">
+                                <p class="productPrice"><%= `$${product.price}` %></p>
+                                <button class="bi bi-cart-plus-fill btnQuickAddToCart" data-id=<%= product.id %>></button>
+                            </div>
+                        </li>
+                    <% }) %>
+                </ul>
+        <% } else { %>
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active">Home</li>
+                </ol>
+            </nav>
+            
+            <h2 class="text-light text-uppercase">Catálogo de productos</h2>
+            <p class="text-light">Aún no hay productos cargados</p>
+        <% } %>
+    </div>
+</div>

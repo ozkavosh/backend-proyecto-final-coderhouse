@@ -1,0 +1,70 @@
+[2022-10-23T22:21:20.383] [ERROR] default - BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+    at new BSONTypeError (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\node_modules\bson\src\error.ts:16:5)
+    at new ObjectId (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\node_modules\bson\src\objectid.ts:88:15)
+    at ProductFileDAO.<anonymous> (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\containers\MongoDBContainer.ts:30:12)
+    at Generator.next (<anonymous>)
+    at C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\containers\MongoDBContainer.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\containers\MongoDBContainer.ts:4:12)
+    at ProductFileDAO.getById (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\containers\MongoDBContainer.ts:43:16)
+    at ProductRepository.<anonymous> (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\repositories\ProductRepository.ts:34:38)
+    at Generator.next (<anonymous>)
+[2022-10-23T22:21:28.538] [ERROR] default - BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+    at new BSONTypeError (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\node_modules\bson\src\error.ts:16:5)
+    at new ObjectId (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\node_modules\bson\src\objectid.ts:88:15)
+    at ProductFileDAO.<anonymous> (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\containers\MongoDBContainer.ts:30:12)
+    at Generator.next (<anonymous>)
+    at C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\containers\MongoDBContainer.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\containers\MongoDBContainer.ts:4:12)
+    at ProductFileDAO.getById (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\containers\MongoDBContainer.ts:43:16)
+    at ProductRepository.<anonymous> (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\repositories\ProductRepository.ts:34:38)
+    at Generator.next (<anonymous>)
+[2022-10-24T01:08:40.832] [ERROR] default - Error: Error fetching object
+    at ProductFileDAO.<anonymous> (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\containers\FirestoreContainer.ts:39:13)
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\containers\FirestoreContainer.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2022-10-24T01:11:31.255] [ERROR] default - Error: Error updating object
+    at ProductFileDAO.<anonymous> (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\containers\FirestoreContainer.ts:49:13)
+    at Generator.throw (<anonymous>)
+    at rejected (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\containers\FirestoreContainer.ts:6:65)
+[2022-10-25T01:43:01.655] [ERROR] default - Error: Missing credentials for "LOGIN"
+    at SMTPConnection._formatError (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:790:19)
+    at SMTPConnection.login (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:444:38)
+    at C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\node_modules\nodemailer\lib\smtp-transport\index.js:272:32
+    at SMTPConnection.<anonymous> (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:213:17)
+    at Object.onceWrapper (node:events:645:28)
+    at SMTPConnection.emit (node:events:526:28)
+    at SMTPConnection.emit (node:domain:475:12)
+    at SMTPConnection._actionEHLO (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:1325:14)
+    at SMTPConnection._processResponse (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:953:20)
+    at SMTPConnection._onData (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:755:14) {
+  code: 'EAUTH',
+  command: 'API'
+}
+[2022-10-25T14:27:56.379] [ERROR] default - Error: Missing credentials for "LOGIN"
+    at SMTPConnection._formatError (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:790:19)
+    at SMTPConnection.login (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:444:38)
+    at C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\node_modules\nodemailer\lib\smtp-transport\index.js:272:32
+    at SMTPConnection.<anonymous> (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:213:17)
+    at Object.onceWrapper (node:events:645:28)
+    at SMTPConnection.emit (node:events:526:28)
+    at SMTPConnection.emit (node:domain:475:12)
+    at SMTPConnection._actionEHLO (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:1325:14)
+    at SMTPConnection._processResponse (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:953:20)
+    at SMTPConnection._onData (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\node_modules\nodemailer\lib\smtp-connection\index.js:755:14) {
+  code: 'EAUTH',
+  command: 'API'
+}
+[2022-10-26T01:41:27.759] [ERROR] default - TypeError: Cannot destructure property 'email' of 'undefined' as it is undefined.
+    at new ProductDTO (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\dtos\CartDTO.ts:16:5)
+    at CartRepository.<anonymous> (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\repositories\CartRepository.ts:64:16)
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\repositories\CartRepository.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2022-10-26T02:08:38.726] [ERROR] default - TypeError: Cannot read properties of undefined (reading 'products')
+    at CartRepository.<anonymous> (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\repositories\CartRepository.ts:63:59)
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Augus\Desktop\coderhouse\backend-proyecto-final-coderhouse\repositories\CartRepository.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
